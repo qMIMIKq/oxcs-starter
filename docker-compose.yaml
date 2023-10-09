@@ -6,7 +6,7 @@ services:
     ports:
       - "${APP_PORT}:6000"
     volumes:
-      - "~/apps-data/files-data/${COMPANY}/:/app/assets/uploads/"
+       - "~/apps-data/${COMPANY}/files-data/:/app/assets/uploads/"
     depends_on:
       db:
         condition: service_healthy
@@ -32,7 +32,7 @@ services:
     restart: always
     image: postgres:latest
     volumes:
-      - "~/apps-data/tables-data/${COMPANY}:/var/lib/postgresql/data"
+      - "~/apps-data/${COMPANY}/tables-data/:/var/lib/postgresql/data"
     environment:
       POSTGRES_DB: "${DB}"
       POSTGRES_USER: "${DB}"
